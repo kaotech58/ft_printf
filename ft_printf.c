@@ -11,8 +11,8 @@ int main (void)
 
     unsigned int    xs = 42424242;
 
-    printf("printf: %d%d%u%d%d%p%p%x%X\n", -4, 2, 10, -3, -2147483648, &ptr, &ptr2, xs, xs);
-    ft_printf("%d%d%u%d%d%p%p%x%X", -4, 2, 10, -3, -2147483648, &ptr, &ptr2, xs, xs);
+    printf("printf: %d%d%u%d%p%p%x%X\n", -4, 2, 10, -3, &ptr, &ptr2, xs, xs);
+    ft_printf("%d%d%u%d%p%p%x%X", -4, 2, 10, -3, &ptr, &ptr2, xs, xs);
     printf("\n");
     printf("printf: %d\n", -4);
     ft_printf("%d", -4);
@@ -25,9 +25,6 @@ int main (void)
     printf("\n");
     printf("printf: %d\n", -3);
     ft_printf("%d", -3);
-    printf("\n");
-    printf("printf: %d\n", -2147483648);
-    ft_printf("%d", -2147483648);
     printf("\n");
     printf("printf: %p\n", &ptr);
     ft_printf("%p", &ptr);

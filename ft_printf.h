@@ -2,8 +2,9 @@
 #define FT_PRINTF_H
 
 #include <stdio.h>
+#include <unistd.h> //To use the write function
 #include <stdarg.h> //To use variadic functions
-#include <string.h>  //to use strings
+#include <string.h>  //To use strings
 
 int     ft_printf(const char *format, ...);
 void	ft_putnbr_fd(int n, int *formatLen);
