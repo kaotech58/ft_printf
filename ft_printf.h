@@ -9,6 +9,6 @@ int     ft_printf(const char *format, ...);
 void	ft_putnbr_fd(int n, int *formatLen);
 void	ft_unsigned_int(unsigned int u, int *formatLen);
 void	ft_putchar_fd(char c, int *formatLen);
-void	ft_pointer(size_t pointer, int *formatLen);
+void	ft_hex(unsigned int x, int *formatLen, char selector);
 
 #endif

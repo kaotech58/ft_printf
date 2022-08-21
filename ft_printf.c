@@ -3,24 +3,52 @@
 /*  Main function only for testing*/
 int main (void)
 {
-    char    *ptr = "something";
-    char    *ptr2 = "stuff";
-    ft_printf("%d%d%u%d%d%p%p", -4, 2, 10, -3, -2147483648, ptr, ptr2);
+    int test1 = 42;
+    int test2 = 58;
+
+    int *ptr = &test1;
+    int *ptr2 = &test2;
+
+    unsigned int    xs = 42424242;
+
+    printf("printf: %d%d%u%d%d%p%p%x%X\n", -4, 2, 10, -3, -2147483648, &ptr, &ptr2, xs, xs);
+    ft_printf("%d%d%u%d%d%p%p%x%X", -4, 2, 10, -3, -2147483648, &ptr, &ptr2, xs, xs);
     printf("\n");
+    printf("printf: %d\n", -4);
     ft_printf("%d", -4);
     printf("\n");
+    printf("printf: %d\n", 2);
     ft_printf("%d", 2);
     printf("\n");
+    printf("printf: %u\n", 10);
     ft_printf("%u", 10);
     printf("\n");
+    printf("printf: %d\n", -3);
     ft_printf("%d", -3);
     printf("\n");
+    printf("printf: %d\n", -2147483648);
     ft_printf("%d", -2147483648);
     printf("\n");
-    ft_printf("%p", ptr);
+    printf("printf: %p\n", &ptr);
+    ft_printf("%p", &ptr);
     printf("\n");
-    ft_printf("%p", ptr2);
+    printf("printf: %d\n", *ptr);
+    ft_printf("%d", *ptr);
     printf("\n");
+    printf("printf: %d\n", *ptr2);
+    ft_printf("%d", *ptr2);
+    printf("\n");
+    printf("printf: %u\n", xs);
+    ft_printf("%u", xs);
+    printf("\n");
+    printf("printf: %u\n", xs);
+    ft_printf("%u", xs);
+    printf("\n");
+    printf("printf: %x\n", xs);
+    ft_printf("%x", xs);
+    printf("\n");
+    printf("printf: %X\n", xs);
+    ft_printf("%X", xs);
     return (0);
 }
 
@@ -33,7 +61,11 @@ static void conversion(char value, va_list *args, int *len, int *i)
         else if (value == 'u')
             ft_unsigned_int(va_arg(*args, unsigned int), len);
         else if (value == 'p')
-            ft_pointer(va_arg(*args, size_t), len);
+            ft_hex(va_arg(*args, unsigned int), len, 'p');
+        else if (value == 'x')
+            ft_hex(va_arg(*args, unsigned int), len, 'x');
+        else if (value == 'X')
+            ft_hex(va_arg(*args, unsigned int), len, 'X');
         else
             (*i)--;
 }
@@ -71,9 +103,6 @@ int ft_printf(const char *format, ...)
             conversion(format[i], &args, &formatLen, &i);
             i++;
         }
-//        else if (format[i] == ' ')
-//            i++;
-//            i++;
         else
         {
             ft_putchar_fd((char)format[i], &formatLen);

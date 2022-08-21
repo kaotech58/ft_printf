@@ -33,29 +33,34 @@ void	ft_unsigned_int(unsigned int u, int *formatLen)
 	ft_putchar_fd(u % 10 + '0', formatLen);
 }
 
-void	ft_pointer(size_t pointer, int *formatLen)
+void	ft_hex(unsigned int x, int *formatLen, char selector)
 {
 	char	string[25];
-	int		i;
+    int		i;
 	char	*base_character;
 
-	base_character = "0123456789abcdef";
+	if (selector == 'X')
+		base_character = "0123456789ABCDEF";
+	else if (selector == 'x')
+		base_character = "0123456789abcdef";
+    else
+    {
+        base_character = "0123456789abcdef";
+        write(1, "0x", 2);
+        (*formatLen) += 2;
+    }
 	i = 0;
-	write(1, "0x", 2);
-	(*formatLen) += 2;
-	if (!pointer)
+	if (x == 0)
 	{
 		ft_putchar_fd('0', formatLen);
 		return ;
 	}
-	while (pointer)
+	while (x != 0)
 	{
-		string[i] = base_character[pointer % 16];
-		pointer = pointer / 16;
+		string[i] = base_character [x % 16];
+		x = x / 16;
 		i++;
 	}
 	while (i--)
-	{
 		ft_putchar_fd(string[i], formatLen);
-	}
 }
