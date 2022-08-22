@@ -7,12 +7,12 @@ OBJS				= $(SRCS:.c=.o)
 OBJECTS_PREFIXED		= $(addprefix $(OBJS_DIR), $(OBJS))
 DEPS				= ft_printf.h
 
-NAME				= ft_printf.a
+NAME				= libftprintf.a
 
 CC				= gcc
 RMDIR				= rm -rf
 RM				= rm -f
-CCFLAGS				= -Wall -Wextra -Werror -I.
+CCFLAGS				= -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c $(DEPS)
 				@mkdir -p $(OBJS_DIR)
