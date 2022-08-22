@@ -4,48 +4,56 @@
 int main (void)
 {
     int test1 = 42;
-    int test2 = 58;
 
     int *ptr = &test1;
-    int *ptr2 = &test2;
 
     unsigned int    xs = 42424242;
 
-    printf("printf: %d%d%u%d%p%p%x%X\n", -4, 2, 10, -3, &ptr, &ptr2, xs, xs);
-    ft_printf("%d%d%u%d%p%p%x%X", -4, 2, 10, -3, &ptr, &ptr2, xs, xs);
+    char string1[12] = "hello there";
+    char string2;
+    char f = 'F';
+    char t = 't';
+
+    printf("Not: %d\n", -4);
+    ft_printf("Me!: %d", -4);
     printf("\n");
-    printf("printf: %d\n", -4);
-    ft_printf("%d", -4);
+    printf("Not: %i\n", 2);
+    ft_printf("Me!: %i", 2);
     printf("\n");
-    printf("printf: %d\n", 2);
-    ft_printf("%d", 2);
+    printf("Not: %u\n", 10);
+    ft_printf("Me!: %u", 10);
     printf("\n");
-    printf("printf: %u\n", 10);
-    ft_printf("%u", 10);
+    printf("Not: %p\n", &ptr);
+    ft_printf("Me!: %p", &ptr);
     printf("\n");
-    printf("printf: %d\n", -3);
-    ft_printf("%d", -3);
+    printf("Not: %d\n", *ptr);
+    ft_printf("Me!: %d", *ptr);
     printf("\n");
-    printf("printf: %p\n", &ptr);
-    ft_printf("%p", &ptr);
+    printf("Not: %u\n", xs);
+    ft_printf("Me!: %u", xs);
     printf("\n");
-    printf("printf: %d\n", *ptr);
-    ft_printf("%d", *ptr);
+    printf("Not: %x\n", xs);
+    ft_printf("Me!: %x", xs);
     printf("\n");
-    printf("printf: %d\n", *ptr2);
-    ft_printf("%d", *ptr2);
+    printf("Not: %X\n", xs);
+    ft_printf("Me!: %X", xs);
     printf("\n");
-    printf("printf: %u\n", xs);
-    ft_printf("%u", xs);
+    printf("Not: %s\n", string1);
+    ft_printf("Me!: %s", string1);
     printf("\n");
-    printf("printf: %u\n", xs);
-    ft_printf("%u", xs);
+    printf("Not: %s\n", string2);
+    ft_printf("Me!: %s", string2);
     printf("\n");
-    printf("printf: %x\n", xs);
-    ft_printf("%x", xs);
+    printf("Not: %c\n", f);
+    ft_printf("Me!: %c", f);
     printf("\n");
-    printf("printf: %X\n", xs);
-    ft_printf("%X", xs);
+    printf("Not: %c\n", t);
+    ft_printf("Me!: %c", t);
+    printf("\n");
+    printf("Not: %%\n");
+    ft_printf("Me!: %%");
+    printf("\n");
+
     return (0);
 }
 
@@ -63,6 +71,12 @@ static void conversion(char value, va_list *args, int *len, int *i)
             ft_hex(va_arg(*args, unsigned int), len, 'x');
         else if (value == 'X')
             ft_hex(va_arg(*args, unsigned int), len, 'X');
+        else if (value == 's')
+            ft_string(va_arg(*args, char *), len);
+        else if (value == 'c')
+            ft_putchar_fd(va_arg(*args, int), len);
+        else if (value == '%')
+            ft_putchar_fd('%', len);
         else
             (*i)--;
 }

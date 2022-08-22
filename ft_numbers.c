@@ -9,7 +9,8 @@ void	ft_putnbr_fd(int n, int *formatLen)
 
 	if (nbr == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+	    ft_string("-2147483648", formatLen);
+		//write(1, "-2147483648", 11);
 		(*formatLen) += 11;
 		return ;
 	}
@@ -46,7 +47,8 @@ void	ft_hex(unsigned int x, int *formatLen, char selector)
     else
     {
         base_character = "0123456789abcdef";
-        write(1, "0x", 2);
+        ft_string("0x", formatLen);
+        //write(1, "0x", 2);
         (*formatLen) += 2;
     }
 	i = 0;
