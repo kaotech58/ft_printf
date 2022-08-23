@@ -6,7 +6,7 @@
 /*   By: teiffe <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 11:58:26 by teiffe            #+#    #+#             */
-/*   Updated: 2022/08/23 12:21:57 by teiffe           ###   ########.fr       */
+/*   Updated: 2022/08/23 15:11:40 by teiffe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stdio.h>
 # include <unistd.h>
-# include <stdarg.h> //To use variadic functions
-# include <string.h>  //to use strings
+# include <stdarg.h>
+# include <string.h>
 
 void	ft_putnbr_fd(int n, int *format_len);
 void	ft_unsigned_int(unsigned int u, int *format_len);
