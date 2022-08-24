@@ -53,12 +53,12 @@ void	ft_hex(size_t x, int *format_len, char selector)
 
 	i = 0;
 	base_character = ft_base_character(selector, format_len);
-	if (x == 0)
+	if (!x)
 	{
 		ft_putchar_fd('0', format_len);
 		return ;
 	}
-	while (x != 0)
+	while (x)
 	{
 		string[i] = base_character [x % 16];
 		x = x / 16;
