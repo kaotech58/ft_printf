@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_numbers.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: teiffe <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/31 11:36:10 by teiffe            #+#    #+#             */
+/*   Updated: 2022/08/31 11:36:16 by teiffe           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_putnbr_fd(int n, int *format_len)
@@ -48,7 +60,7 @@ char	*ft_base_character(char selector, int *format_len)
 void	ft_hex(size_t x, int *format_len, char selector)
 {
 	char	string[25];
-	int	i;
+	int		i;
 	char	*base_character;
 
 	i = 0;
